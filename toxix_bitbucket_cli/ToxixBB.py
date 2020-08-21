@@ -49,6 +49,12 @@ class ToxixBB:
             storyId = source.split('_')[0] 
             destination = self._get_or_create_story_branch(storyId, story_name=story_name)
         
+        # check if there is a diff to the destination branch
+        self.repo.remotes.origin.fetch(destination)
+        if not self.repo.index.diff('origin/%s' %(destination)):
+            print("There is no difference between your current code and the branch you want to open the pullrequest to. Make sure you commited your changes and are opening the pullrequest to the correct branch.")
+            exit(1)
+
         data = {
                 'close_source_branch': close,
                 #'description': 'zenos example',
