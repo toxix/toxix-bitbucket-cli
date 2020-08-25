@@ -5,6 +5,11 @@ This Softweare is currently in alpha status expect errors and unitendend behavio
 
 ## Installation
 
+Install the requirements
+```
+sudo apt-get install python3-tk
+```
+
 Clone this repository and run an
 
 ```
